@@ -1,5 +1,12 @@
 import { motion } from 'framer-motion';
 
+const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
+
+const fadeUp = (delay = 0) => ({
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease, delay } },
+});
+
 export default function Thesis() {
   const wedges = [
     {
@@ -36,41 +43,79 @@ export default function Thesis() {
 
   const container = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
+    show: { opacity: 1, transition: { staggerChildren: 0.1 } },
+  };
 
   const item = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
-  }
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease } },
+  };
+
+  const statContainer = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.15 } },
+  };
+
+  const statItem = {
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
+    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease } },
+  };
 
   return (
     <section id="thesis" className="py-32 px-6 md:px-12 bg-offwhite border-t border-navy/5">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-24 max-w-4xl">
-          <p className="text-copper font-bold tracking-widest uppercase mb-6 flex items-center">
-            <span className="w-8 h-[2px] bg-copper mr-4"></span> Thesis
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-navy mb-10 leading-[1.1] tracking-tight">
-            The AI that earns the next decade of returns lives in the physical world.
-          </h2>
-          
-          <div className="text-xl text-navy/70 space-y-8 leading-relaxed font-medium max-w-3xl">
-            <p>
-              Eighty percent of venture dollars in Q1 2026 went to AI — most of it to chatbots, copilots, and vertical SaaS. Meanwhile, foundation models for robotics shipped (π0, GR00T, Gemini Robotics). Edge compute got cheap (Jetson Thor: 2,070 FP4 TFLOPS at the edge). Humanoid bills of materials dropped from $250K in 2022 to under $30K today, with a line of sight to $17K by 2030.
-            </p>
-            <p>
-              Physical AI is no longer a research bet. It's a deployment bet. The companies building the middleware, the data infrastructure, the vertical workflows, and the autonomy stacks for real industrial environments are under-funded relative to the opportunity by an order of magnitude. That's the wedge Astra was built for.
-            </p>
-          </div>
-        </div>
 
-        <motion.div 
+        {/* Section heading block — animated */}
+        <motion.div
+          className="mb-24 max-w-4xl"
+          variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.12 } } }}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          <motion.p
+            variants={fadeUp(0)}
+            className="text-copper font-bold tracking-widest uppercase mb-6 flex items-center"
+          >
+            <span className="w-8 h-0.5 bg-copper mr-4"></span> Thesis
+          </motion.p>
+
+          <motion.h2
+            variants={fadeUp(0)}
+            className="text-4xl md:text-5xl font-bold text-navy mb-10 leading-[1.1] tracking-tight"
+          >
+            The AI that earns the next decade of returns lives in the physical world.
+          </motion.h2>
+
+          <div className="text-xl text-navy/70 space-y-8 leading-relaxed font-medium max-w-3xl">
+            <motion.p variants={fadeUp(0)}>
+              Eighty percent of venture dollars in Q1 2026 went to AI — most of it to chatbots, copilots, and vertical SaaS. Meanwhile, foundation models for robotics shipped (π0, GR00T, Gemini Robotics). Edge compute got cheap (Jetson Thor: 2,070 FP4 TFLOPS at the edge). Humanoid bills of materials dropped from $250K in 2022 to under $30K today, with a line of sight to $17K by 2030.
+            </motion.p>
+            <motion.p variants={fadeUp(0)}>
+              Physical AI is no longer a research bet. It's a deployment bet. The companies building the middleware, the data infrastructure, the vertical workflows, and the autonomy stacks for real industrial environments are under-funded relative to the opportunity by an order of magnitude. That's the wedge Astra was built for.
+            </motion.p>
+          </div>
+
+          {/* Key data points strip — staggered */}
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-3 gap-0 mt-16 border border-navy/10 divide-y sm:divide-y-0 sm:divide-x divide-navy/10"
+            variants={statContainer}
+          >
+            {[
+              { stat: "80%", label: "of VC dollars to chatbots & SaaS in Q1 2026" },
+              { stat: "$30K", label: "humanoid BOM today — down from $250K in 2022" },
+              { stat: "2,070", label: "FP4 TFLOPS at the edge (Jetson Thor)" },
+            ].map(({ stat, label }) => (
+              <motion.div key={stat} variants={statItem} className="px-8 py-8">
+                <p className="text-4xl font-bold text-copper tracking-tight mb-2">{stat}</p>
+                <p className="text-sm text-navy/50 font-medium leading-snug">{label}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Wedge cards */}
+        <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
@@ -78,8 +123,8 @@ export default function Thesis() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
         >
           {wedges.map((wedge, idx) => (
-            <motion.div 
-              key={idx} 
+            <motion.div
+              key={idx}
               variants={item}
               className="group flex flex-col p-8 border border-navy/10 hover:border-copper/50 hover:bg-white transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl hover:shadow-copper/5"
             >
@@ -89,7 +134,8 @@ export default function Thesis() {
             </motion.div>
           ))}
         </motion.div>
+
       </div>
     </section>
-  )
+  );
 }

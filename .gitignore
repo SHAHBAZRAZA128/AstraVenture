@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Sensitive documents
+Astra_Website_Copy_MVP.docx
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -6,7 +6,7 @@ export default function Hero() {
     <section id="hero" className="min-h-[calc(100vh-80px)] flex flex-col justify-center py-20 px-6 md:px-12 relative overflow-hidden">
       
       {/* Background typography accent */}
-      <div className="absolute top-1/4 -right-1/4 text-[20vw] font-bold text-navy/[0.02] tracking-tighter pointer-events-none select-none leading-none z-0">
+      <div className="absolute top-1/4 -right-1/4 text-[20vw] font-bold astra-shimmer tracking-tighter pointer-events-none select-none leading-none z-0">
         ASTRA
       </div>
 
@@ -22,14 +22,14 @@ export default function Hero() {
             <span className="text-navy/60">It will live in factories, fleets, machines, and critical infrastructure.</span>
           </motion.h1>
           
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
             className="text-xl md:text-2xl text-navy/70 mb-12 max-w-3xl leading-relaxed font-medium"
           >
-            Astra Ventures is a seed fund for physical-world AI. 
-            AI-native in how we operate: deal flow, diligence, monitoring, reporting.
+            Astra Ventures is a seed fund for physical-world AI — robotics, industrial automation, autonomous systems, energy, and the infrastructure underneath.{' '}
+            <span className="text-navy/50">AI-native in how we operate: deal flow, diligence, monitoring, reporting.</span>
           </motion.p>
           
           <motion.div 
@@ -68,7 +68,7 @@ export default function Hero() {
             <Play className="w-10 h-10 ml-2" fill="currentColor" />
           </button>
           
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent opacity-80 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-navy/90 via-navy/20 to-transparent opacity-80 mix-blend-multiply"></div>
           
           <div className="absolute bottom-8 left-0 right-0 text-center z-10 px-6 transform translate-y-2 group-hover:translate-y-0 opacity-80 group-hover:opacity-100 transition-all duration-500">
             <p className="text-offwhite text-sm md:text-lg font-medium tracking-wide">

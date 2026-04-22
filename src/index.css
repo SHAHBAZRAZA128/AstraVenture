@@ -4,10 +4,37 @@
   --color-navy: #0A1128;
   --color-copper: #B87333;
   --color-offwhite: #F9F6F0;
-  
+
   --font-sans: "Inter", system-ui, sans-serif;
-  
+
   --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: floatY 8s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
+@keyframes shimmerRTL {
+  0%   { background-position: 200% center; }
+  100% { background-position: -100% center; }
+}
+
+.astra-shimmer {
+  background: linear-gradient(
+    to left,
+    rgba(10, 17, 40, 0.04) 0%,
+    rgba(10, 17, 40, 0.04) 35%,
+    rgba(10, 17, 40, 0.18) 50%,
+    rgba(10, 17, 40, 0.04) 65%,
+    rgba(10, 17, 40, 0.04) 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerRTL 10s linear infinite;
 }
 
 @layer base {

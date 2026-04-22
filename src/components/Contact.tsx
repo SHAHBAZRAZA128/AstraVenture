@@ -5,29 +5,63 @@ export default function Contact() {
     <section id="contact" className="py-32 px-6 md:px-12 bg-navy text-offwhite border-t border-offwhite/10 relative overflow-hidden">
       
       {/* Decorative background element */}
-      <div className="absolute bottom-0 left-0 w-full h-[500px] bg-gradient-to-t from-copper/5 to-transparent pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-full h-125 bg-linear-to-t from-copper/5 to-transparent pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 relative z-10">
-        
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+
+        {/* Left column — staggered children */}
+        <motion.div
           className="lg:w-1/3"
+          variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.12 } } }}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
         >
-          <p className="text-copper font-bold tracking-widest uppercase mb-6 flex items-center">
-            <span className="w-8 h-[2px] bg-copper mr-4"></span> Contact
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight tracking-tight">
+          <motion.p
+            variants={{ hidden: { opacity: 0, x: -20 }, show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] } } }}
+            className="text-copper font-bold tracking-widest uppercase mb-6 flex items-center"
+          >
+            <span className="w-8 h-0.5 bg-copper mr-4"></span> Contact
+          </motion.p>
+          <motion.h2
+            variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] } } }}
+            className="text-4xl md:text-5xl font-bold mb-8 leading-tight tracking-tight"
+          >
             Write to us.
-          </h2>
-          <p className="text-xl text-offwhite/80 leading-relaxed mb-10 font-medium">
+          </motion.h2>
+          <motion.p
+            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] } } }}
+            className="text-xl text-offwhite/80 leading-relaxed mb-10 font-medium"
+          >
             A paragraph or a deck — what you've built, what you're shipping, who's paying. We respond within two business days.
-          </p>
-          <p className="text-lg text-offwhite/60 font-medium">
-            Or write directly to <a href="mailto:founder@astraventures.ai" className="text-copper hover:text-white transition-colors pb-1 border-b border-copper/30 hover:border-white">founder@astraventures.ai</a>.
-          </p>
+          </motion.p>
+          <motion.p
+            variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] } } }}
+            className="text-lg text-offwhite/60 font-medium"
+          >
+            Or write directly to{' '}
+            <a href="mailto:founder@astraventures.ai" className="text-copper hover:text-white transition-colors pb-0.5 border-b border-copper/30 hover:border-white">
+              founder@astraventures.ai
+            </a>.
+          </motion.p>
+
+          {/* LP contact */}
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] } } }}
+            className="mt-12 pt-12 border-t border-offwhite/10"
+          >
+            <p className="text-xs font-bold uppercase tracking-widest text-copper mb-4">For LPs</p>
+            <p className="text-offwhite/60 text-base font-medium leading-relaxed mb-4">
+              Fund documents, data room access, and GP availability on request.
+            </p>
+            <a
+              href="mailto:lp@astraventures.ai"
+              className="inline-flex items-center text-sm font-bold uppercase tracking-widest text-offwhite/80 hover:text-copper transition-colors group"
+            >
+              lp@astraventures.ai
+              <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            </a>
+          </motion.div>
         </motion.div>
 
         <motion.div 
@@ -35,7 +69,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="lg:w-2/3 max-w-2xl bg-offwhite/[0.02] p-8 md:p-12 border border-offwhite/10 backdrop-blur-sm"
+          className="lg:w-2/3 max-w-2xl bg-offwhite/2 p-8 md:p-12 border border-offwhite/10 backdrop-blur-sm"
         >
           <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
