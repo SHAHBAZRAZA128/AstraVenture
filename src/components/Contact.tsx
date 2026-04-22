@@ -50,7 +50,7 @@ export default function Contact() {
             variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] } } }}
             className="mt-12 pt-12 border-t border-offwhite/10"
           >
-            <p className="text-xs font-bold uppercase tracking-widest text-copper mb-4">For LPs</p>
+            <p className="text-xs font-bold tracking-widest text-copper mb-4">For LPs</p>
             <p className="text-offwhite/60 text-base font-medium leading-relaxed mb-4">
               Fund documents, data room access, and GP availability on request.
             </p>

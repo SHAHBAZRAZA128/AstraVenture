@@ -13,7 +13,7 @@ export default function Navigation() {
 
   const links = [
     { href: '#thesis', label: 'Thesis' },
-    { href: '#stack', label: 'How we operate' },
+    { href: '#stack', label: 'How We Operate' },
     { href: '#team', label: 'Team' },
     { href: '#contact', label: 'Contact' },
   ];
@@ -31,7 +31,7 @@ export default function Navigation() {
             Astra Ventures
           </a>
 
-          <div className="hidden lg:flex items-center space-x-10 text-sm font-bold tracking-widest uppercase text-navy/70">
+          <div className="hidden lg:flex items-center space-x-10 text-sm font-bold tracking-widest text-navy/70">
             {links.map((link) => (
               <a key={link.href} href={link.href} className="relative group overflow-hidden py-2">
                 <span className="group-hover:text-navy transition-colors duration-300">{link.label}</span>
@@ -43,7 +43,7 @@ export default function Navigation() {
           <div className="flex items-center gap-3">
             <a
               href="#contact"
-              className="hidden md:inline-flex items-center justify-center px-6 py-2.5 border-2 border-navy text-navy text-sm font-bold uppercase tracking-widest rounded-full hover:bg-navy hover:text-offwhite transition-all duration-300"
+              className="hidden md:inline-flex items-center justify-center px-6 py-2.5 border-2 border-navy text-navy text-sm font-bold tracking-widest rounded-full hover:bg-navy hover:text-offwhite transition-all duration-300"
             >
               For LPs
             </a>
@@ -86,7 +86,7 @@ export default function Navigation() {
                     hidden: { opacity: 0, x: -12 },
                     show: { opacity: 1, x: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
                   }}
-                  className="block py-4 border-b border-navy/5 text-sm font-bold uppercase tracking-widest text-navy/70 hover:text-copper transition-colors"
+                  className="block py-4 border-b border-navy/5 text-sm font-bold tracking-widest text-navy/70 hover:text-copper transition-colors"
                 >
                   {link.label}
                 </motion.a>
@@ -101,7 +101,7 @@ export default function Navigation() {
                 <a
                   href="#contact"
                   onClick={() => setMobileOpen(false)}
-                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-navy text-navy text-sm font-bold uppercase tracking-widest rounded-full hover:bg-navy hover:text-offwhite transition-all duration-300 w-full"
+                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-navy text-navy text-sm font-bold tracking-widest rounded-full hover:bg-navy hover:text-offwhite transition-all duration-300 w-full"
                 >
                   For LPs
                 </a>

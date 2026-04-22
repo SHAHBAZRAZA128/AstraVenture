@@ -29,7 +29,7 @@ export default function Hero() {
             className="text-xl md:text-2xl text-navy/70 mb-12 max-w-3xl leading-relaxed font-medium"
           >
             Astra Ventures is a seed fund for physical-world AI — robotics, industrial automation, autonomous systems, energy, and the infrastructure underneath.{' '}
-            <span className="text-navy/50">AI-native in how we operate: deal flow, diligence, monitoring, reporting.</span>
+            <span className="text-navy/50 font-bold">AI-native in how we operate: deal flow, diligence, monitoring, reporting.</span>
           </motion.p>
           
           <motion.div 
@@ -47,7 +47,7 @@ export default function Hero() {
             </a>
             <a 
               href="mailto:lp@astraventures.ai" 
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-navy text-navy text-sm font-bold uppercase tracking-widest rounded-full hover:bg-navy hover:text-offwhite transition-all duration-300 hover:-translate-y-1 hover:shadow-xl shadow-navy/10"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-navy text-navy text-sm font-bold tracking-widest rounded-full hover:bg-navy hover:text-offwhite transition-all duration-300 hover:-translate-y-1 hover:shadow-xl shadow-navy/10"
             >
               For LPs
             </a>

@@ -57,7 +57,7 @@ export default function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease, delay: 0.2 }}
         >
-          <p className="text-xs font-bold uppercase tracking-widest text-offwhite/30 mb-1">For LPs</p>
+          <p className="text-xs font-bold tracking-widest text-offwhite/30 mb-1">For LPs</p>
           <a href="mailto:lp@astraventures.ai" className="text-sm text-offwhite/50 hover:text-copper transition-colors font-medium">
             lp@astraventures.ai
           </a>
