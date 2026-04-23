@@ -67,7 +67,7 @@ export default function Thesis() {
 
         {/* Section heading block — two column: text left, stats right */}
         <motion.div
-          className="mb-24 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-16 items-start"
+          className="mb-24 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-16 items-stretch"
           variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.12 } } }}
           initial="hidden"
           whileInView="show"
@@ -84,21 +84,23 @@ export default function Thesis() {
 
             <motion.h2
               variants={fadeUp(0)}
-              className="text-4xl md:text-5xl font-bold text-navy mb-10 leading-[1.1] tracking-tight"
+              className="text-4xl md:text-5xl font-bold text-navy mb-8 leading-[1.1] tracking-tight"
             >
-              The next generation of category-defining AI lives in the physical world.
+              The next generation of category-defining AI lives in the<br />
+              <span className="text-copper">physical world.</span>
             </motion.h2>
 
-            <div className="text-xl text-navy/70 space-y-8 leading-relaxed font-medium">
-              <motion.p variants={fadeUp(0)}>
-                Physical AI is no longer a research bet. It's a deployment bet. The companies building the middleware, the data infrastructure, the vertical workflows, and the autonomy stacks for real industrial environments are under-funded relative to the opportunity by an order of magnitude. That's the wedge Astra was built for.
-              </motion.p>
-            </div>
+            <motion.p
+              variants={fadeUp(0)}
+              className="text-xl text-navy/70 leading-relaxed font-medium"
+            >
+              Physical AI is no longer a research bet. It's a deployment bet. The companies building the middleware, the data infrastructure, the vertical workflows, and the autonomy stacks for real industrial environments are under-funded relative to the opportunity by an order of magnitude. That's the wedge Astra was built for.
+            </motion.p>
           </div>
 
-          {/* Right: stats stacked vertically — separate cards, normal scroll */}
+          {/* Right: stats stacked vertically — separate cards, stretch to match left column */}
           <motion.div
-            className="flex flex-col gap-5"
+            className="flex flex-col gap-5 h-full"
             variants={statContainer}
           >
             {[
@@ -106,7 +108,7 @@ export default function Thesis() {
               { stat: "$30K", label: "humanoid BOM today — down from $250K in 2022" },
               { stat: "2,070", label: "FP4 TFLOPS at the edge (Jetson Thor)" },
             ].map(({ stat, label }) => (
-              <motion.div key={stat} variants={statItem} className="px-7 py-7 border border-navy/10 rounded-2xl">
+              <motion.div key={stat} variants={statItem} className="flex-1 flex flex-col justify-center px-7 py-7 border border-navy/10 rounded-2xl">
                 <p className="text-4xl font-bold text-copper tracking-tight mb-2">{stat}</p>
                 <p className="text-sm text-navy/50 font-medium leading-snug">{label}</p>
               </motion.div>
