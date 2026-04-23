@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import ramiroPhoto from '../assets/Ramiro.jpeg';
+import ishtiaquePhoto from '../assets/Ishtique.jpeg';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -11,7 +13,7 @@ export default function Team() {
   const team = [
     {
       name: "Ramiro López-García, CFA",
-      initials: "RL",
+      photo: ramiroPhoto,
       title: "General Partner — Global Capital & Industrial Operations",
       bio: [
         "Ramiro López García is a General Partner at Astra Ventures and Managing Partner of an M&A advisory firm for mid-market companies across the Americas. He has 20+ years of experience in industrial operations, corporate finance, and cloud infrastructure. He was most recently General Manager of a multi-site industrial manufacturing business, and previously Director of Finance and Strategy at Amazon Prime and AWS — leading a $10 billion compute platform and closing over $1 billion in infrastructure partnerships. He held M&A, strategic planning, and Chief of Staff roles at CEMEX across the U.S., Europe, and Latin America, and began his career as an engineer at Airbus and Mercedes-Benz in Germany.",
@@ -21,7 +23,7 @@ export default function Team() {
     },
     {
       name: "Ishtiaque Mohammad",
-      initials: "IM",
+      photo: ishtiaquePhoto,
       title: "General Partner — Technology, Platform & AI Operations",
       bio: [
         "Ishtiaque Mohammad is a General Partner at Astra Ventures and the Founder and CEO of SowFin, a vertical AI platform for venture capital due diligence. He has 25+ years of experience in semiconductors, corporate finance, and AI platforms. He also owns VentureReady, a Bay Area community of 1,300 founders, and built VentureScope, Astra's internal AI diligence and portfolio management system. He was previously Director of Strategic Finance at Intel, where he led $2 billion in annual R&D capital allocation and shaped Xeon datacenter CPU strategy. Before Intel, he managed corporate finance and capital budgeting at Broadcom.",
@@ -50,7 +52,7 @@ export default function Team() {
             Operators First. Leading the New Economy.
           </motion.h2>
           <motion.p variants={fadeUp} className="text-xl text-navy/70 max-w-3xl font-medium leading-relaxed">
-            Two general partners. Twenty years of physical-economy and deep-tech operating experience between them — CEMEX, Amazon, AWS, Intel, Airbus, Broadcom.
+            Two general partners. Decades of physical-economy and deep-tech operating experience between them — Amazon, AWS, Intel, Airbus, Broadcom, Mercedes-Benz, CEMEX.
           </motion.p>
         </motion.div>
 
@@ -71,12 +73,11 @@ export default function Team() {
               {/* Portrait */}
               <div className="w-full md:w-1/3 lg:w-1/4 shrink-0">
                 <div className="aspect-3/4 bg-navy border-8 border-navy w-full relative overflow-hidden shadow-2xl group">
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                    <span className="text-5xl font-bold text-offwhite/15 tracking-tight select-none">
-                      {gp.initials}
-                    </span>
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-offwhite/20">Portrait</span>
-                  </div>
+                  <img
+                    src={gp.photo}
+                    alt={gp.name}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
                   <div className="absolute inset-0 bg-linear-to-br from-white/0 via-white/3 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 </div>
               </div>

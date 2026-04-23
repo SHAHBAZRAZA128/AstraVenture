@@ -44,24 +44,6 @@ export default function Contact() {
               founder@astraventures.ai
             </a>.
           </motion.p>
-
-          {/* LP contact */}
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] } } }}
-            className="mt-12 pt-12 border-t border-offwhite/10"
-          >
-            <p className="text-xs font-bold tracking-widest text-copper mb-4">For LPs</p>
-            <p className="text-offwhite/60 text-base font-medium leading-relaxed mb-4">
-              Fund documents, data room access, and GP availability on request.
-            </p>
-            <a
-              href="mailto:lp@astraventures.ai"
-              className="inline-flex items-center text-sm font-bold uppercase tracking-widest text-offwhite/80 hover:text-copper transition-colors group"
-            >
-              lp@astraventures.ai
-              <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-            </a>
-          </motion.div>
         </motion.div>
 
         <motion.div 

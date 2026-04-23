@@ -86,13 +86,10 @@ export default function Thesis() {
               variants={fadeUp(0)}
               className="text-4xl md:text-5xl font-bold text-navy mb-10 leading-[1.1] tracking-tight"
             >
-              The AI that earns the next decade of returns lives in the physical world.
+              The next generation of category-defining AI lives in the physical world.
             </motion.h2>
 
             <div className="text-xl text-navy/70 space-y-8 leading-relaxed font-medium">
-              <motion.p variants={fadeUp(0)}>
-                Eighty percent of venture dollars in Q1 2026 went to AI — most of it to chatbots, copilots, and vertical SaaS. Meanwhile, foundation models for robotics shipped (π0, GR00T, Gemini Robotics). Edge compute got cheap (Jetson Thor: 2,070 FP4 TFLOPS at the edge). Humanoid bills of materials dropped from $250K in 2022 to under $30K today, with a line of sight to $17K by 2030.
-              </motion.p>
               <motion.p variants={fadeUp(0)}>
                 Physical AI is no longer a research bet. It's a deployment bet. The companies building the middleware, the data infrastructure, the vertical workflows, and the autonomy stacks for real industrial environments are under-funded relative to the opportunity by an order of magnitude. That's the wedge Astra was built for.
               </motion.p>
@@ -105,7 +102,7 @@ export default function Thesis() {
             variants={statContainer}
           >
             {[
-              { stat: "80%", label: "of VC dollars to chatbots & SaaS in Q1 2026" },
+              { stat: "$700B+", label: "Total Physical AI TAM by 2030 across industrial sectors" },
               { stat: "$30K", label: "humanoid BOM today — down from $250K in 2022" },
               { stat: "2,070", label: "FP4 TFLOPS at the edge (Jetson Thor)" },
             ].map(({ stat, label }) => (

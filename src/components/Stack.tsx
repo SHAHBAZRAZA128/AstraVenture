@@ -6,7 +6,7 @@ export default function Stack() {
   const operations = [
     {
       title: "01. Deal flow.",
-      desc: "Our internal sourcing engine pulls from the 1,300+ founder network, the Monterrey corridor, Cornell's Big Red Ventures pipeline, and open technical signal — GitHub, arXiv, technical press — and scores every lead against a 20-criteria model."
+      desc: "Our sourcing engine combines a curated founder network across Bay Area and major US tech hubs with VentureScope, our proprietary AI platform that scores every opportunity against a 20-criteria evaluation model — giving us diligence depth no generalist fund can match at speed."
     },
     {
       title: "02. Diligence.",
@@ -14,11 +14,11 @@ export default function Stack() {
     },
     {
       title: "03. Monitoring.",
-      desc: "Portfolio companies plug into one dashboard: metrics, milestones, burn, runway. We notice drift before the next board meeting. Founders get a co-pilot, not a reporting tax."
+      desc: "Our VentureScope AI platform monitors every portfolio company across metrics, milestones, burn, and runway — in one place. We flag issues early, before they become board conversations. Founders spend less time on reporting and more time on building."
     },
     {
       title: "04. Reporting.",
-      desc: "LP reports are generated from the same system that monitors the portfolio. Quarterly updates are accurate, timely, and auditable."
+      desc: "LP reports are automatically generated from the same AI system that monitors the portfolio."
     }
   ];
 

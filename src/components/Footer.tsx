@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import logo from '../assets/ASTRA WHITE.png';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -14,7 +15,7 @@ export default function Footer() {
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.8, ease }}
     >
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-10">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
 
         {/* Logo */}
         <motion.div
@@ -23,10 +24,7 @@ export default function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease, delay: 0.1 }}
         >
-          <div className="text-2xl font-bold tracking-tighter text-offwhite uppercase mb-1">
-            Astra Ventures
-          </div>
-          <p className="text-xs text-offwhite/30 font-medium tracking-wide">Fund I · astraventures.ai</p>
+          <img src={logo} alt="Astra Ventures" className="h-16 md:h-20 w-auto" />
         </motion.div>
 
         {/* Nav links — staggered */}
@@ -49,24 +47,11 @@ export default function Footer() {
           ))}
         </motion.div>
 
-        {/* LP contact */}
-        <motion.div
-          className="hidden md:block text-right"
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease, delay: 0.2 }}
-        >
-          <p className="text-xs font-bold tracking-widest text-offwhite/30 mb-1">For LPs</p>
-          <a href="mailto:lp@astraventures.ai" className="text-sm text-offwhite/50 hover:text-copper transition-colors font-medium">
-            lp@astraventures.ai
-          </a>
-        </motion.div>
       </div>
 
       {/* Legal row */}
       <motion.div
-        className="max-w-7xl mx-auto mt-12 pt-8 border-t border-offwhite/10 flex flex-col md:flex-row justify-between items-start gap-4"
+        className="max-w-7xl mx-auto mt-12 pt-8 border-t border-offwhite/10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -74,9 +59,6 @@ export default function Footer() {
       >
         <p className="text-xs font-medium tracking-wide text-offwhite/30">
           © 2026 Astra Ventures. All rights reserved.
-        </p>
-        <p className="text-xs text-offwhite/20 font-medium max-w-xl md:text-right leading-relaxed">
-          This site is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. Past performance is not indicative of future results. Subject to fund counsel review prior to LP distribution.
         </p>
       </motion.div>
     </motion.footer>
