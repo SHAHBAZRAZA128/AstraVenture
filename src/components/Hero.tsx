@@ -5,11 +5,6 @@ export default function Hero() {
   return (
     <section id="hero" className="min-h-[calc(100vh-80px)] flex flex-col justify-center pt-12 pb-10 relative overflow-hidden">
 
-      {/* Background typography accent */}
-      <div className="absolute top-1/4 -right-1/4 text-[20vw] font-bold astra-shimmer tracking-tighter pointer-events-none select-none leading-none z-0">
-        ASTRA
-      </div>
-
       <div className="max-w-7xl mx-auto w-full relative z-10 px-6 md:px-12">
         <div className="max-w-5xl">
           <motion.h1
