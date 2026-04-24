@@ -62,7 +62,7 @@ export default function Thesis() {
   };
 
   return (
-    <section id="thesis" className="py-32 px-6 md:px-12 bg-offwhite border-t border-navy/5">
+    <section id="thesis" className="pt-16 pb-32 px-6 md:px-12 bg-offwhite border-t border-navy/5">
       <div className="max-w-7xl mx-auto">
 
         {/* Section heading block — two column: text left, stats right */}

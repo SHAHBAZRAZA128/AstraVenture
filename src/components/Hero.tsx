@@ -3,16 +3,16 @@ import heroVideo from '../assets/0423.mov';
 
 export default function Hero() {
   return (
-    <section id="hero" className="min-h-[calc(100vh-80px)] flex flex-col justify-center py-20 px-6 md:px-12 relative overflow-hidden">
-      
+    <section id="hero" className="min-h-[calc(100vh-80px)] flex flex-col justify-center pt-12 pb-10 relative overflow-hidden">
+
       {/* Background typography accent */}
       <div className="absolute top-1/4 -right-1/4 text-[20vw] font-bold astra-shimmer tracking-tighter pointer-events-none select-none leading-none z-0">
         ASTRA
       </div>
 
-      <div className="max-w-7xl mx-auto w-full relative z-10">
+      <div className="max-w-7xl mx-auto w-full relative z-10 px-6 md:px-12">
         <div className="max-w-5xl">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
@@ -21,7 +21,7 @@ export default function Hero() {
             The next trillion-dollar AI wave won't live in chatbots. <br/>
             <span className="text-navy/60">It will live in factories, fleets, machines, and critical infrastructure.</span>
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -31,8 +31,8 @@ export default function Hero() {
             Astra Ventures funds the foundational technologies powering Physical AI.{' '}
             <span className="text-navy/50 font-bold">AI-native in how we operate: deal flow, diligence, monitoring, reporting.</span>
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
@@ -47,33 +47,25 @@ export default function Hero() {
             </a>
           </motion.div>
         </div>
-
-        {/* HERO VIDEO BLOCK */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.7 }}
-          className="relative w-full aspect-video bg-[#050914] flex items-center justify-center group overflow-hidden border-4 border-navy shadow-2xl"
-        >
-          <video
-            src={heroVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-
-          <div className="absolute inset-0 bg-linear-to-t from-navy/80 via-navy/10 to-transparent pointer-events-none"></div>
-
-          <div className="absolute bottom-8 left-0 right-0 text-center z-10 px-6 transform translate-y-2 group-hover:translate-y-0 opacity-80 group-hover:opacity-100 transition-all duration-500">
-            <p className="text-offwhite text-sm md:text-lg font-medium tracking-wide">
-              Eighty percent of venture dollars this year went to AI. Almost none of it went to the AI that moves things.
-            </p>
-          </div>
-        </motion.div>
       </div>
+
+      {/* HERO VIDEO BLOCK — full-bleed */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.7 }}
+        className="relative w-full aspect-video bg-[#050914] flex items-center justify-center group overflow-hidden shadow-2xl z-10"
+      >
+        <video
+          src={heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </motion.div>
     </section>
   )
 }

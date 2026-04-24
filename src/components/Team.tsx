@@ -72,7 +72,7 @@ export default function Team() {
             >
               {/* Portrait */}
               <div className="w-full md:w-1/3 lg:w-1/4 shrink-0">
-                <div className="aspect-3/4 bg-navy border-8 border-navy w-full relative overflow-hidden shadow-2xl group">
+                <div className="aspect-3/4 bg-navy w-full relative overflow-hidden shadow-2xl group">
                   <img
                     src={gp.photo}
                     alt={gp.name}
