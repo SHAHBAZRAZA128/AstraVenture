@@ -74,9 +74,6 @@ export default function Stack() {
                   <svg className="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </a>
               </div>
-              <p className="text-sm text-offwhite/50 max-w-sm font-medium">
-                SowFin is live. Review the platform, the scoring model, and the underlying AI agents we run the fund on.
-              </p>
             </motion.div>
           </motion.div>
 
