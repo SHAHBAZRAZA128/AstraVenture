@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { useT } from '../i18n/LanguageContext';
 
 const EMAILJS_SERVICE_ID = 'service_8q7000p';
 const EMAILJS_TEMPLATE_ID = 'template_cc81edn';
@@ -9,6 +10,7 @@ const EMAILJS_PUBLIC_KEY = 'Yd5eNNFh6aLp69-J1';
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
 export default function Contact() {
+  const t = useT();
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<Status>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -32,7 +34,7 @@ export default function Contact() {
     } catch (err) {
       setStatus('error');
       setErrorMessage(
-        err instanceof Error ? err.message : 'Something went wrong. Please try again or email us directly.'
+        err instanceof Error ? err.message : t.contact.fallbackError
       );
     }
   };
@@ -57,25 +59,25 @@ export default function Contact() {
             variants={{ hidden: { opacity: 0, x: -20 }, show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] } } }}
             className="text-copper font-bold tracking-widest uppercase mb-6 flex items-center"
           >
-            <span className="w-8 h-0.5 bg-copper mr-4"></span> Contact
+            <span className="w-8 h-0.5 bg-copper mr-4"></span> {t.contact.eyebrow}
           </motion.p>
           <motion.h2
             variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] } } }}
             className="text-4xl md:text-5xl font-bold mb-8 leading-tight tracking-tight"
           >
-            Write to us.
+            {t.contact.heading}
           </motion.h2>
           <motion.p
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] } } }}
             className="text-xl text-offwhite/80 leading-relaxed mb-10 font-medium"
           >
-            A paragraph or a deck — what you've built, what you're shipping, who's paying. We respond within two business days.
+            {t.contact.body}
           </motion.p>
           <motion.p
             variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] } } }}
             className="text-lg text-offwhite/60 font-medium"
           >
-            Or write directly to{' '}
+            {t.contact.directIntro}{' '}
             <a href="mailto:founder@astraventures.ai" className="text-copper hover:text-white transition-colors pb-0.5 border-b border-copper/30 hover:border-white">
               founder@astraventures.ai
             </a>.
@@ -92,7 +94,7 @@ export default function Contact() {
           <form ref={formRef} className="space-y-8" onSubmit={handleSubmit} noValidate>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <label htmlFor="name" className="block text-sm font-bold uppercase tracking-widest text-offwhite/80 mb-3">Name</label>
+                <label htmlFor="name" className="block text-sm font-bold uppercase tracking-widest text-offwhite/80 mb-3">{t.contact.labels.name}</label>
                 <input
                   type="text"
                   id="name"
@@ -102,7 +104,7 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-bold uppercase tracking-widest text-offwhite/80 mb-3">Email</label>
+                <label htmlFor="email" className="block text-sm font-bold uppercase tracking-widest text-offwhite/80 mb-3">{t.contact.labels.email}</label>
                 <input
                   type="email"
                   id="email"
@@ -115,7 +117,7 @@ export default function Contact() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <label htmlFor="company" className="block text-sm font-bold uppercase tracking-widest text-offwhite/80 mb-3">Company</label>
+                <label htmlFor="company" className="block text-sm font-bold uppercase tracking-widest text-offwhite/80 mb-3">{t.contact.labels.company}</label>
                 <input
                   type="text"
                   id="company"
@@ -125,7 +127,7 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="url" className="block text-sm font-bold uppercase tracking-widest text-offwhite/80 mb-3">Company URL</label>
+                <label htmlFor="url" className="block text-sm font-bold uppercase tracking-widest text-offwhite/80 mb-3">{t.contact.labels.url}</label>
                 <input
                   type="url"
                   id="url"
@@ -136,7 +138,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label htmlFor="stage" className="block text-sm font-bold uppercase tracking-widest text-offwhite/80 mb-3">Stage</label>
+              <label htmlFor="stage" className="block text-sm font-bold uppercase tracking-widest text-offwhite/80 mb-3">{t.contact.labels.stage}</label>
               <div className="relative">
                 <select
                   id="stage"
@@ -145,10 +147,10 @@ export default function Contact() {
                   className="w-full bg-offwhite/5 border border-offwhite/20 focus:border-copper focus:bg-offwhite/10 text-offwhite px-5 py-4 outline-none transition-all duration-300 appearance-none font-medium cursor-pointer"
                   required
                 >
-                  <option value="" disabled className="text-navy bg-offwhite">Select a stage</option>
-                  <option value="Pre-seed" className="text-navy bg-offwhite">Pre-seed</option>
-                  <option value="Seed" className="text-navy bg-offwhite">Seed</option>
-                  <option value="Other" className="text-navy bg-offwhite">Other</option>
+                  <option value="" disabled className="text-navy bg-offwhite">{t.contact.stageOptions.placeholder}</option>
+                  <option value="Pre-seed" className="text-navy bg-offwhite">{t.contact.stageOptions.preseed}</option>
+                  <option value="Seed" className="text-navy bg-offwhite">{t.contact.stageOptions.seed}</option>
+                  <option value="Other" className="text-navy bg-offwhite">{t.contact.stageOptions.other}</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-5 text-copper">
                   <svg className="h-5 w-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -157,13 +159,13 @@ export default function Contact() {
             </div>
 
             <div>
-              <label htmlFor="building" className="block text-sm font-bold uppercase tracking-widest text-offwhite/80 mb-3">What you're building</label>
+              <label htmlFor="building" className="block text-sm font-bold uppercase tracking-widest text-offwhite/80 mb-3">{t.contact.labels.building}</label>
               <textarea
                 id="building"
                 name="building"
                 rows={5}
                 className="w-full bg-offwhite/5 border border-offwhite/20 focus:border-copper focus:bg-offwhite/10 text-offwhite px-5 py-4 outline-none transition-all duration-300 resize-y font-medium"
-                placeholder="One paragraph description..."
+                placeholder={t.contact.placeholderBuilding}
                 required
               ></textarea>
             </div>
@@ -174,18 +176,18 @@ export default function Contact() {
                 disabled={status === 'sending'}
                 className="w-full md:w-auto px-10 py-4 bg-copper text-offwhite font-bold uppercase tracking-widest rounded-full hover:bg-copper/90 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
               >
-                {status === 'sending' ? 'Sending…' : 'Send'}
+                {status === 'sending' ? t.contact.sending : t.contact.submit}
               </button>
 
               {status === 'success' && (
                 <p className="text-copper text-sm font-medium">
-                  Thanks — we've received your note. We'll respond as soon as possible.
+                  {t.contact.success}
                 </p>
               )}
               {status === 'error' && (
                 <p className="text-red-300 text-sm font-medium">
-                  Couldn't send: {errorMessage} You can also email{' '}
-                  <a href="mailto:founder@astraventures.ai" className="underline">founder@astraventures.ai</a> directly.
+                  {t.contact.errorPrefix} {errorMessage} {t.contact.errorSuffix}{' '}
+                  <a href="mailto:founder@astraventures.ai" className="underline">founder@astraventures.ai</a> {t.contact.errorTail}
                 </p>
               )}
             </div>

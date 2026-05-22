@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useT } from '../i18n/LanguageContext';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -8,38 +9,7 @@ const fadeUp = (delay = 0) => ({
 });
 
 export default function Thesis() {
-  const wedges = [
-    {
-      num: "01.",
-      title: "Industrial & Manufacturing Intelligence",
-      desc: "Factory-floor AI: vision, quality, scheduling, predictive maintenance."
-    },
-    {
-      num: "02.",
-      title: "Logistics & Warehouse Autonomy",
-      desc: "AMRs, yard automation, warehouse orchestration, last-mile."
-    },
-    {
-      num: "03.",
-      title: "Robotics Middleware & Orchestration",
-      desc: "Fleet management, safety, simulation, synthetic data, tele-ops, tooling."
-    },
-    {
-      num: "04.",
-      title: "Energy & Industrial Mobility",
-      desc: "Inspection robotics, grid-edge AI, autonomous maintenance for utilities and heavy equipment."
-    },
-    {
-      num: "05.",
-      title: "Agricultural & Construction Robotics",
-      desc: "The most under-funded categories relative to TAM. Measurable unit economics."
-    },
-    {
-      num: "06.",
-      title: "Applied Vertical AI for Heavy Industries",
-      desc: "Domain-specific models and workflow software for mid-market manufacturing, construction, mining."
-    }
-  ];
+  const t = useT();
 
   const container = {
     hidden: { opacity: 0 },
@@ -79,22 +49,22 @@ export default function Thesis() {
               variants={fadeUp(0)}
               className="text-copper font-bold tracking-widest uppercase mb-6 flex items-center"
             >
-              <span className="w-8 h-0.5 bg-copper mr-4"></span> Thesis
+              <span className="w-8 h-0.5 bg-copper mr-4"></span> {t.thesis.eyebrow}
             </motion.p>
 
             <motion.h2
               variants={fadeUp(0)}
               className="text-4xl md:text-5xl font-bold text-navy mb-8 leading-[1.1] tracking-tight"
             >
-              The next generation of category-defining AI lives in the<br />
-              <span className="text-copper">physical world.</span>
+              {t.thesis.headingMain}<br />
+              <span className="text-copper">{t.thesis.headingAccent}</span>
             </motion.h2>
 
             <motion.p
               variants={fadeUp(0)}
               className="text-xl text-navy/70 leading-relaxed font-medium"
             >
-              Physical AI is no longer a research bet. It's a deployment bet. The companies building the middleware, the data infrastructure, the vertical workflows, and the autonomy stacks for real industrial environments are under-funded relative to the opportunity by an order of magnitude. That's the wedge Astra was built for.
+              {t.thesis.body}
             </motion.p>
           </div>
 
@@ -103,11 +73,7 @@ export default function Thesis() {
             className="flex flex-col gap-5 h-full"
             variants={statContainer}
           >
-            {[
-              { stat: "$700B+", label: "Total Physical AI TAM by 2030 across industrial sectors" },
-              { stat: "$30K", label: "humanoid BOM today — down from $250K in 2022" },
-              { stat: "2,070", label: "FP4 TFLOPS at the edge (Jetson Thor)" },
-            ].map(({ stat, label }) => (
+            {t.thesis.stats.map(({ stat, label }) => (
               <motion.div key={stat} variants={statItem} className="flex-1 flex flex-col justify-center px-7 py-7 border border-navy/10 rounded-2xl">
                 <p className="text-4xl font-bold text-copper tracking-tight mb-2">{stat}</p>
                 <p className="text-sm text-navy/50 font-medium leading-snug">{label}</p>
@@ -124,7 +90,7 @@ export default function Thesis() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
         >
-          {wedges.map((wedge, idx) => (
+          {t.thesis.wedges.map((wedge, idx) => (
             <motion.div
               key={idx}
               variants={item}

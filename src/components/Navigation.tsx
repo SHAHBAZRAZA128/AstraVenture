@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/logo2.png';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { lang, toggleLang, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -13,11 +15,31 @@ export default function Navigation() {
   }, []);
 
   const links = [
-    { href: '#thesis', label: 'Thesis' },
-    { href: '#stack', label: 'How We Operate' },
-    { href: '#team', label: 'Team' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#thesis', label: t.nav.thesis },
+    { href: '#stack', label: t.nav.stack },
+    { href: '#team', label: t.nav.team },
+    { href: '#contact', label: t.nav.contact },
   ];
+
+  const LangToggle = ({ className = '' }: { className?: string }) => (
+    <button
+      onClick={toggleLang}
+      aria-label={t.nav.langAria}
+      aria-pressed={lang === 'es'}
+      className={`inline-flex items-center rounded-full border border-navy/20 bg-offwhite/60 backdrop-blur-sm text-[11px] font-bold overflow-hidden select-none ${className}`}
+    >
+      <span
+        className={`px-3.5 py-1.5 transition-colors ${lang === 'en' ? 'bg-navy text-offwhite' : 'text-navy/60 hover:text-navy'}`}
+      >
+        EN
+      </span>
+      <span
+        className={`px-3.5 py-1.5 transition-colors ${lang === 'es' ? 'bg-navy text-offwhite' : 'text-navy/60 hover:text-navy'}`}
+      >
+        ES
+      </span>
+    </button>
+  );
 
   return (
     <>
@@ -28,7 +50,7 @@ export default function Navigation() {
         className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-offwhite/70 backdrop-blur-md shadow-sm' : 'bg-offwhite'} border-b border-navy/10 py-2 px-6 md:px-12`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <a href="#hero" className="flex items-center" aria-label="Astra Ventures — Home">
+          <a href="#hero" className="flex items-center" aria-label={t.nav.homeAria}>
             <img src={logo} alt="Astra Ventures" className="h-11 md:h-12 w-auto" />
           </a>
 
@@ -42,9 +64,10 @@ export default function Navigation() {
           </div>
 
           <div className="flex items-center gap-3">
+            <LangToggle />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
+              aria-label={t.nav.toggleAria}
               className="lg:hidden p-2 -mr-2 text-navy"
             >
               {mobileOpen ? (

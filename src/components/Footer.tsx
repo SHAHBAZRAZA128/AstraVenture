@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import logo from '../assets/astrafooterwhite.png';
+import { useT } from '../i18n/LanguageContext';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function Footer() {
-  const navLinks = ['Thesis', 'Team', 'Contact'];
+  const t = useT();
+  const navLinks = [t.footer.thesis, t.footer.team, t.footer.contact];
   const hrefs = ['#thesis', '#team', '#contact'];
 
   return (
@@ -58,7 +60,7 @@ export default function Footer() {
         transition={{ duration: 0.8, ease, delay: 0.4 }}
       >
         <p className="text-xs font-medium tracking-wide text-offwhite/30">
-          © 2026 Astra Ventures. All rights reserved.
+          {t.footer.copyright}
         </p>
       </motion.div>
     </motion.footer>
